@@ -1,0 +1,68 @@
+<form #f="ngForm" (submit)="onFormSubmit(f)" class="container">
+
+    <div class="form-group">
+        <label for="firstName" placeholder="Input">Name :</label>
+        <input type="name"
+          class="form-control"
+          id="firstname"
+          name="firstName"
+          ngModel
+          #name="ngModel"
+          required
+          minlength="10"
+          maxlength="50"
+          >
+          <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+            <div *ngIf="name.errors.required">Nom requis</div>
+            <div *ngIf="name.errors.minlength">1 caractères minimum</div>
+            <div *ngIf="name.errors.maxlength">20 caractères maximum</div>
+          </div>
+    </div>
+
+
+
+
+
+
+  <div class="form-group">
+          <label for="email" placeholder="Input">Email :</label>
+          <input type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            ngModel
+            #email="ngModel"
+            required
+            minlength="10"
+            maxlength="50"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+              <div *ngIf="email.errors.required">Email requis</div>
+              <div *ngIf="email.errors.pattern">Doit être de la forme nom@domaine.fr</div>
+              <div *ngIf="email.errors.minlength">10 caractères minimum</div>
+              <div *ngIf="email.errors.maxlength">250 caractères maximum</div>
+            </div>
+
+        </div>
+        <div class="form-group">
+          <label for="commentaire">Commentaire :</label>
+          <textarea
+            class="form-control"
+            id="commentaire"
+            name="commentaire"
+            #commentaire="ngModel"
+            ngModel
+            required
+            minlength="10"
+            maxlength="50"
+            ></textarea>
+          <div class="alert alert-danger" *ngIf="commentaire.touched && !commentaire.valid">
+            <div *ngIf="commentaire.errors.required">Commentaire requis</div>
+            <div *ngIf="commentaire.errors.minlength">10 caractères minimum</div>
+            <div *ngIf="commentaire.errors.maxlength">50 caractères maximum</div>
+          </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Envoyer</button>
+</form>

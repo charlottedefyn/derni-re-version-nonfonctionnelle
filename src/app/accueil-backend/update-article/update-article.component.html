@@ -1,0 +1,86 @@
+<form #f="ngForm" (submit)="onSubmitNewArticle($event,f)" >
+
+  
+       
+      
+        <input type="hidden"
+            [value]="article.id"
+            name="id"
+            ngModel
+            #id="ngModel">
+   <!-- ne pas oublier ce champ -->
+
+  <div class="form-group row">
+      <label for="title" class="col-sm-2 col-form-label">Title</label>
+      <div class="col-sm-10">
+      <input
+          type="text"
+          name="title"
+          id="title"
+          
+          class="form-control"
+          ngModel
+          #title="ngModel"
+          required
+          minlength="5"
+          maxlength="100"
+          [value]="article.title"
+          >
+      <div class="alert alert-danger" *ngIf="title.touched && !title.valid">
+          <div *ngIf="title.errors.required">le champ titre est obligatoire</div>
+          <div *ngIf="title.errors.minlength">5 caratères minimum</div>
+          <div *ngIf="title.errors.maxlenght">100 caratères maximum</div>
+      </div>
+  </div>
+</div>
+
+
+<div class="form-group">
+
+        <label for="category" class="col-sm-2 col-form-label">Category</label>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary">News</button>
+                <button type="button" class="btn btn-secondary">Photos</button>
+        </div>
+        
+    </div>
+
+
+  <div class="form-group">
+      <label for="contains">Article</label>
+      <textarea
+          name="contains"
+          id="contains"
+          rows="10"
+          class="form-control"
+          ngModel
+          #contains="ngModel"
+          required
+          minlength="3"
+          maxlenght="1000"
+          [value]="article.body"
+          ></textarea>
+      <div class="alert alert-danger" *ngIf="contains.touched && !contains.valid">
+          <div *ngIf="contains.errors.required">le champ titre est obligatoire</div>
+          <div *ngIf="contains.errors.minlength">20 caratères minimum</div>
+          <div *ngIf="contains.errors.maxlenght">Limite de caractere atteinte</div>
+      </div>
+  </div>
+
+
+  <div class="form-group">
+      <input
+          type="submit"
+          value="Mis à jour"
+          class="btn btn-warning"
+          [disabled]="!f.valid"
+          >
+          
+  </div>
+</form>
+
+
+<div class="alert alert-success" *ngIf="isOk">
+  Article mis à jour
+</div>

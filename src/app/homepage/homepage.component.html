@@ -1,0 +1,19 @@
+<app-carousel-home></app-carousel-home>
+
+<div>
+  <article *ngFor="let article of articles">
+      <h2>{{ article.title }} {{article.id}}</h2>
+      <figure>
+          <a [routerLink]="['/article', article.id]">
+              <img [src]="article.imageUrl" alt="">
+          </a>
+      </figure>
+      <p>{{article.contains}}
+        <p><a [routerLink]="['/:id']" >Lire la suite ...</a>
+      </p>
+
+  </article>
+</div>
+
+
+

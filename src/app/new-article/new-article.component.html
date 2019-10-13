@@ -1,0 +1,204 @@
+<form #f="ngForm" (submit)="onSubmitNewArticle($event,f)">
+
+    <div class="form-group row">
+        <label for="title" class="col-sm-2 col-form-label">Title</label>
+        <div class="col-sm-10">
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="Your title..."
+                name="title"
+                ngModel
+                #title ="ngModel"
+                minlength="5"
+                maxlength="100"
+                required
+            >
+
+            <div class="alert alert-danger" *ngIf="title.touched && !title.valid">
+                      <div *ngIf="title.errors.required">le champ titre est obligatoire </div>
+                      <div *ngIf="title.errors.minlength">2 caracteres minimum</div>
+                      <div *ngIf="title.errors.maxlength">Limite maximum atteinte</div>
+            </div>
+      
+        </div>
+    </div>
+
+
+    <div class="">
+        <div><label for="category">Category</label></div>
+        <select 
+            name="category"
+            placeholder="Choose a category"
+            class="custom-select"
+            ngModel
+            #category="ngModel"
+            required
+        >
+            <option selected>Choose category...</option>
+            <option value="news">News</option>
+            <option value="liveReport">Live Report</option>
+                
+            <div class="alert alert-danger" *ngIf="category.touched && !category.valid">
+                <div *ngIf="category.errors.required">This field is required </div>
+            </div>
+
+        </select>
+
+    </div>
+        
+
+    <div>
+        <div><label for="author">Author</label></div>
+            <input  
+                type="text"
+                class="form-control"
+                placeholder="Your name here..."
+                name="author"
+                ngModel
+                #author ="ngModel"
+                minlength="1"
+                maxlength="100"
+                required
+            >
+
+            <div class="alert alert-danger" *ngIf="author.touched && !author.valid">
+                <div *ngIf="author.errors.required">This field is required </div>
+                <div *ngIf="author.errors.minlenght">3 caracters required</div>
+                <div *ngIf="author.errors.maxlength">Caracters limite max</div>
+            </div>
+    </div> 
+
+
+
+    <div class="form-group">
+        <label for="contains" class="col-sm-2 col-form-label">Write your contain...</label>
+            <div class="col-sm-10">
+                <textarea cols="sm-2"
+                    type="text"
+                    class="form-control"
+                    placeholder="Remplir"
+                    name="contains"
+                    ngModel
+                    #contains ="ngModel"
+                    minlength="3"
+                    maxlength="3000"
+                    required
+                ></textarea>
+                <div class="alert alert-danger" *ngIf="contains.touched && !contains.valid">
+                    <div *ngIf="contains.errors.required">le champ titre est obligatoire </div>
+                    <div *ngIf="contains.errors.minlength">3 caracteres minimum</div>
+                    <div *ngIf="contains.errors.maxlength">3 caracteres maximum</div>
+                </div>
+      
+            </div>
+    </div>
+      
+      
+      
+    <fieldset>
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">
+                Status
+            </legend>
+
+            <div class="col-sm-10">
+                <div class="form-check">
+                <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    id="gridRadios1" 
+                    value="true" 
+                    checked
+                    name="online"
+                    ngModel
+                    #online="ngModel"
+                    required
+                >
+
+                    <label class="form-check-label" for="gridRadios1">
+                        Published
+                    </label>
+
+                </div>
+
+                <div class="form-check">
+                <input 
+                    class="form-check-input" 
+                    type="radio"  
+                    id="gridRadios2" 
+                    value="false"
+                    name="online"
+                    ngModel
+                    #online="ngModel"
+                    required
+                >
+                    <label class="form-check-label" for="gridRadios2">
+                        Draft
+                    </label>
+
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+
+      
+    <div>
+        <label>
+            Created Date
+        </label>
+    </div>
+        <input 
+          type="date"
+          name="date_create"
+          value="CurrentTime"
+          ngModel
+          #date="ngModel"
+          required
+        >
+      
+      
+      
+    <div class="form-group">
+            <label for="email">Email :</label>
+            <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                name="email" 
+                ngModel 
+                #email="ngModel" 
+                required 
+                minlength="3" 
+                maxlength="50" 
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                    <div *ngIf="email.errors.required">Email requis</div>
+                    <div *ngIf="email.errors.pattern">Must be name@domaine.fr</div>
+                    <div *ngIf="email.errors.minlength">3 caractères minimum</div>
+                    <div *ngIf="email.errors.maxlength">50 caractères maximum</div>
+                  </div>
+    </div>
+      
+      
+      <hr>
+      
+      <div class="form-group">
+        <input 
+            type="submit" 
+            value="Créer" 
+            class="btn btn-light"
+            [disabled]="!f.valid"
+            >   
+      </div>
+      
+      <div class="alert alert-success" *ngIf="isOk">
+          Nouvel article mis en ligne !
+      </div>
+      {{ f.value | json }}
+      <hr>
+      
+</form>
+
+
