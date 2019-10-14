@@ -1,1 +1,15 @@
-<p>one-article works!</p>
+<article class="col-sm-12">
+    <div class="col-sm-7">
+        <h2>{{ article.title }}</h2>
+        <h5>Published on {{ article.date }}</h5>
+        <h6>Written by : {{ article.author }}</h6>
+        <p class="col-sm-12">{{ article.contains }}</p>
+    </div>
+</article>
+
+<div>
+    <button 
+        class="btn btn-primary" routerLinkActive="active">
+        <a routerLink="/article">Back</a>
+    </button>
+</div>

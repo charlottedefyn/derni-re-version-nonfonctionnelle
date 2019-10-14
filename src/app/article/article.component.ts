@@ -30,20 +30,9 @@ export class ArticleComponent implements OnInit {
 
   }
 
-  onClickDelete(article)
-  {
-    this.service.delete(article.id).subscribe(
-      (result) => {
-        const index = this.articles.indexOf(article);
-        this.articles.splice(index, 1);
-      }
-    );
-  }
+  
 
-  onClickUpdate(article) {
-    console.log(article)
-    this.router.navigate(['/article/update', article.id]);
-  }
+  
 
   onClickHome() {
     this.router.navigate(['/']);

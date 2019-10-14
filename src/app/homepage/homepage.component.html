@@ -1,15 +1,16 @@
 <app-carousel-home></app-carousel-home>
 
-<div>
+<div class="jumbotron">
   <article *ngFor="let article of articles">
-      <h2>{{ article.title }} {{article.id}}</h2>
+      <h2 class="display-4">{{ article.title }} {{article.id}}</h2>
       <figure>
           <a [routerLink]="['/article', article.id]">
-              <img [src]="article.imageUrl" alt="">
+              <img [src]="article.imageUrl" alt="imageUrl">
           </a>
       </figure>
       <p>{{article.contains}}
-        <p><a [routerLink]="['/:id']" >Lire la suite ...</a>
+        <p><a class="btn btn-dark btn-lg" [routerLink]="['/id']" role="button" 
+          >Lire la suite ...</a>
       </p>
 
   </article>

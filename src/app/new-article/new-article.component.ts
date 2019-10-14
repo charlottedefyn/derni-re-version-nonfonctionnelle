@@ -8,7 +8,7 @@ import { ArticlesOnlineService } from '../services/articles-online.service';
 })
 export class NewArticleComponent implements OnInit {
 
-  isOk = false
+  isOk = false;
 
   constructor
   (
@@ -23,7 +23,7 @@ export class NewArticleComponent implements OnInit {
     $event.preventDefault();
     if(f.valid)
     {
-      const article = (f.value);
+      const article = f.value;
       this.service.getPosts(article).subscribe(
         (result) => {
         console.log(result);

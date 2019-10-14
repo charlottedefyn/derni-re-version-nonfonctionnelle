@@ -16,8 +16,7 @@ import { FaqComponent } from './faq/faq.component';
 import { CarouselHomeComponent } from './homepage/carousel-home/carousel-home.component';
 import { ArticleComponent } from './article/article.component';
 import { GalerieComponent } from './galerie/galerie.component';
-import { AccueilBackendComponent } from './accueil-backend/accueil-backend.component';
-import { UpdateArticleComponent } from './accueil-backend/update-article/update-article.component';
+import { UpdateArticleComponent } from './update-article/update-article.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { FormContactService } from './services/form-contact.service';
 import { FormContactComponent } from './contact/form-contact/form-contact.component';
@@ -27,16 +26,6 @@ import { OneArticleComponent } from './one-article/one-article.component';
 
 
 import { NotFoundComponent } from './not-found/not-found.component';
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -57,7 +46,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     UpdateArticleComponent,
     NewArticleComponent,
     FormContactComponent,
-    AccueilBackendComponent,
+    
     OneArticleComponent,
     NotFoundComponent,
     
@@ -75,9 +64,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
       {path: 'home', component: HomepageComponent},
       {path: 'article', component : ArticleComponent},
       {path: 'article/new', component : NewArticleComponent},
-      {path: 'article/:title/:id', component : ArticleComponent},
-      {path: 'article/:update', component : UpdateArticleComponent},
-      {path: 'article/:accueil-backend', component : AccueilBackendComponent},
+      {path: 'article/:id', component : OneArticleComponent},
+      {path: 'article/update', component : UpdateArticleComponent},
       {path: 'contact', component: ContactComponent},
       {path: 'galerie', component : GalerieComponent},
       {path: 'faq', component : FaqComponent},

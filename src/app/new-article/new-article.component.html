@@ -2,7 +2,7 @@
 
     <div class="form-group row">
         <label for="title" class="col-sm-2 col-form-label">Title</label>
-        <div class="col-sm-10">
+        <div class="col-sm-2">
             <input 
                 type="text"
                 class="form-control"
@@ -28,8 +28,11 @@
     <div class="">
         <div><label for="category">Category</label></div>
         <select 
+
+            
             name="category"
             placeholder="Choose a category"
+            multiple title="choix multiples"
             class="custom-select"
             ngModel
             #category="ngModel"
@@ -73,8 +76,8 @@
 
     <div class="form-group">
         <label for="contains" class="col-sm-2 col-form-label">Write your contain...</label>
-            <div class="col-sm-10">
-                <textarea cols="sm-2"
+            <div class="col-sm-">
+                <textarea cols="sm-5"
                     type="text"
                     class="form-control"
                     placeholder="Remplir"
